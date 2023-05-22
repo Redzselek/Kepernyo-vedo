@@ -20,13 +20,13 @@
         padding: 20px;
         text-align: center;
         font-family: "Arial Black";
-        transition: 0.25s;
+        transition: 0.1s;
       }
 
     </style>
   </head>
   <body>
-    <p id="keret">NO SIGNAL</p>
+    <div id="keret">NO SIGNAL</div>
   </body>
 
 </html>
@@ -34,26 +34,27 @@
     var m = window.innerHeight;
     var sz = window.innerWidth;
     console.log(m)
-    console.log(25)
+    console.log(sz)
     var x = 10
     var y = 10
     setInterval(Mozgat, 100);
 
     function Mozgat() 
     {
-    var e = document.getElementById("keret");
-    var p = e.getBoundingClientRect();
-    if (p.bottom >= (m-20) || p.top <= 0) 
-    {
-        y *= -1;
-    }
-    if (p.right >= (sz-20) || p.left <= 0) 
-    {
-        x *= -1;   
-    }
-    e.style.top = (p.top+y)+"px"
-    e.style.left = (p.left+x)+"px"
-
-
+      var m = window.innerHeight;
+      var sz = window.innerWidth;
+      var e = document.getElementById("keret");
+      var p = e.getBoundingClientRect();
+      if (p.bottom >= (m-20) || p.top <= 0) 
+      {
+          y *= -1;
+        }
+        if (p.right >= (sz-20) || p.left <= 0) 
+        {
+          x *= -1;
+        }
+        e.style.top = (p.top+y)+"px"
+        e.style.left = (p.left+x)+"px"
+        
     }
 </script>
