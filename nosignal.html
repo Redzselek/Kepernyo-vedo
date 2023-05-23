@@ -1,62 +1,157 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>No signal</title>
 
     <style>
-        body{background: #000}
-        #keret
-        {
-            border: 5px solid blue;
-            font-size: 30px;
-            color: white;
-            position:absolute;
-            display: block;
-            width: 200px;
-            font-weight: bold;
-            padding: 10px;
-            text-align: center;
-            font-family: "Arial Black";
-        }
+      body {
+        background: #000;
+      }
+      #keret1, #keret2, #keret3, #keret4 {
+        font-size: 30px;
+        color: white;
+        position: absolute;
+        display: block;
+        width: 200px;
+        padding: 10px;
+        font-family: "Arial Black";
+        transition: 0.2s;
+      }
+      #keret2
+      {
+        top: 0;
+        right: 0;
+      }
+      #keret3
+      {
+        bottom: 20px;
+        left: 0;
+      }
+      #keret4
+      {
+        bottom: 20px;
+        right: 0;
+      }
+
+      #labda1 {
+        height: 50px;
+        width: 50px;
+      }
+      #labda2 {
+        height: 50px;
+        width: 50px;
+      }
+      #labda3 {
+        height: 50px;
+        width: 50px;
         
+      }
+      #labda4 {
+        height: 50px;
+        width: 50px;
+        
+      }
+
+
+      @-webkit-keyframes rotating {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      .rotating {
+        -webkit-animation: rotating 5s linear infinite;
+      }
     </style>
-</head>
-<body>
-    <div id="keret">NO SIGNAL</div>    
-</body>
+  </head>
+  <body>
+    <div id="keret1"><img id="labda1" class="rotating" src="labda1.png" alt="" /></div>
+    <div id="keret2"><img id="labda2" class="rotating" src="labda1.png" alt="" /></div>
+    <div id="keret3"><img id="labda3" class="rotating" src="labda2.png" alt="" /></div>
+    <div id="keret4"><img id="labda4" class="rotating" src="labda1.png" alt="" /></div>
+  </body>
 </html>
 
 <script>
+  var m = window.innerHeight;
+  var sz = window.innerWidth;
+  var x1 = 10;
+  var y1 = 10;
+  var x2 = -11;
+  var y2 = 11;
+  var x3 = 20;
+  var y3 = -20;
+  var x4 = -10;
+  var y4 = -10;
+
+
+  setInterval(Mozgat1, 100);
+  setInterval(Mozgat2, 100);
+  setInterval(Mozgat3, 100);
+  setInterval(Mozgat4, 100);
+
+  function Mozgat1() {
     var m = window.innerHeight;
     var sz = window.innerWidth;
-    var x = 10;
-    var y = 10;
-
-    setInterval(Mozgat, 10)
-
-    function Mozgat()
-    {
-        var m = window.innerHeight;
-        var sz = window.innerWidth;
-        var e = document.getElementById("keret");
-        var p = e.getBoundingClientRect();
-        if (p.bottom >= m-20 || p.top<=0)
-        {
-            y *= -1;
-
-        }
-        if (p.right >= sz-20 || p.left<=0)
-        {
-            x *= -1;
-        }
-        e.style.top = (p.y+y)+"px";
-        e.style.left =(p.x+x)+"px";
-
+    var e = document.getElementById("keret1");
+    var p = e.getBoundingClientRect();
+    if (p.bottom >= m - 20 || p.top <= 0) {
+      y1 *= -1;
     }
-
+    if (p.right >= sz - 20 || p.left <= 0) {
+      x1 *= -1;
+    }
+    e.style.top = p.y + y1 + "px";
+    e.style.left = p.x + x1 + "px";
+    console.log(p.y1);
+  }
+  function Mozgat2() {
+    var m = window.innerHeight;
+    var sz = window.innerWidth;
+    var e = document.getElementById("keret2");
+    var p = e.getBoundingClientRect();
+    if (p.bottom >= m - 20 || p.top <= 0) {
+      y2 *= -1;
+    }
+    if (p.right >= sz - 20 || p.left <= 0) {
+      x2 *= -1;
+    }
+    e.style.top = p.y + y2 + "px";
+    e.style.left = p.x + x2 + "px";
+  }
+  function Mozgat3() {
+    var m = window.innerHeight;
+    var sz = window.innerWidth;
+    var e = document.getElementById("keret3");
+    var p = e.getBoundingClientRect();
+    if (p.bottom >= m - 20 || p.top <= 0) {
+      y3 *= -1;
+    }
+    if (p.right >= sz - 20 || p.left <= 0) {
+      x3 *= -1;
+    }
+    e.style.top = p.y + y3 + "px";
+    e.style.left = p.x + x3 + "px";
+  }
+  function Mozgat4() {
+    var m = window.innerHeight;
+    var sz = window.innerWidth;
+    var e = document.getElementById("keret4");
+    var p = e.getBoundingClientRect();
+    if (p.bottom >= m - 20 || p.top <= 0) {
+      y4 *= -1;
+    }
+    if (p.right >= sz - 20 || p.left <= 0) {
+      x4 *= -1;
+    }
+    e.style.top = p.y + y4 + "px";
+    e.style.left = p.x + x4 + "px";
+  }
 
 </script>
